@@ -34,4 +34,13 @@ public class ClientsClientFallback implements ClientsClient {
         return failureList;
     }
 
+    @Override
+    public ClientDTO createClient(ClientDTO clientDTO) {
+        if (cause instanceof FeignException && ((FeignException) cause).status() == 404) {
+            // Treat the HTTP 404 status
+        }
+
+        return clientDTO;
+    }
+
 }

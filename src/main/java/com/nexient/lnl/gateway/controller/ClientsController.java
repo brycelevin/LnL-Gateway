@@ -4,10 +4,12 @@ import com.nexient.lnl.gateway.clients.ClientsClient;
 import com.nexient.lnl.gateway.dto.ClientDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,5 +29,10 @@ public class ClientsController {
         }
 
         return clients;
+    }
+
+    @RequestMapping(value = "/client", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ClientDTO createClient(@Valid @RequestBody ClientDTO clientDto) {
+        return clientsClient.createClient(clientDto);
     }
 }
