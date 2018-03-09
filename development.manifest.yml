@@ -8,7 +8,7 @@
     domains:
     - cfapps.io
     buildpack: https://github.com/hybris/java-jce-buildpack
-    path: build/libs/gateway-0.0.1-SNAPSHOT.jar
+    path: build/libs/LnL-Gateway-0.0.1-SNAPSHOT.jar
 
   env:
     SPRING_PROFILES_ACTIVE: dev
